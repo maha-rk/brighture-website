@@ -28,9 +28,11 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full px-10 transition-all duration-300 ${
-        scrolled ? "py-4" : "py-6"
-      }`}
+        className={`w-full px-10 transition-all duration-300 ${
+            scrolled
+            ? "py-4 bg-black/70 backdrop-blur-md border-b border-white/10"
+            : "py-6 bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
