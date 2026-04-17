@@ -1,4 +1,5 @@
 import './globals.css'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Brighture',
@@ -13,19 +14,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black text-white antialiased">
+        {/* Header */}
         <header className="w-full p-6">
           <nav className="max-w-7xl mx-auto flex gap-8 text-sm uppercase tracking-wider">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/ai-labs">AI Labs</a>
-            <a href="/ai-trainings">AI Trainings</a>
-            <a href="/faq">FAQ</a>
-            <a href="/contact">Contact</a>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/ai-labs">AI Labs</Link>
+            <Link href="/ai-trainings">AI Trainings</Link>
+            <Link href="/faq">FAQ</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </header>
 
-        <main>{children}</main>
+        {/* Page content */}
+        <main className="min-h-screen">
+          {children}
+        </main>
 
+        {/* Footer */}
         <footer className="w-full p-6 text-xs opacity-50">
           © {new Date().getFullYear()} Brighture
         </footer>
