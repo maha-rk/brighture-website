@@ -1,10 +1,21 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "AI Labs", href: "/ai-labs" },
+  { label: "AI Trainings", href: "/ai-trainings" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+]
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => {
@@ -17,9 +28,9 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full transition-all duration-300 ${
+      className={`w-full px-10 transition-all duration-300 ${
         scrolled ? "py-4" : "py-6"
-      } px-10`}
+      }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
@@ -29,13 +40,30 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex gap-10 text-sm uppercase tracking-wider text-white/80">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/ai-labs">AI Labs</Link>
-          <Link href="/ai-trainings">AI Trainings</Link>
-          <Link href="/faq">FAQ</Link>
-          <Link href="/contact">Contact</Link>
+        <nav className="flex gap-10 text-sm uppercase tracking-wider">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href)
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative pb-1 transition-opacity ${
+                  isActive ? "text-white opacity-100" : "text-white opacity-60 hover:opacity-90"
+                }`}
+              >
+                {item.label}
+
+                {/* Active underline */}
+                {isActive && (
+                  <span className="absolute left-0 -bottom-1 h-px w-full bg-white/50" />
+                )}
+              </Link>
+            )
+          })}
         </nav>
 
       </div>
