@@ -1,6 +1,11 @@
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 export const metadata = {
   title: 'Brighture',
   description: 'Engineering Human Intelligence for the AI Future',
@@ -13,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white antialiased">
+      <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Header */}
         <header className="w-full p-6">
           <nav className="max-w-7xl mx-auto flex gap-8 text-sm uppercase tracking-wider">
