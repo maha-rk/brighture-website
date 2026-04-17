@@ -1,6 +1,6 @@
 export default function HomePage() {
   return (
-    <main>
+    <main className="space-y-40">
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center px-10">
@@ -22,20 +22,20 @@ export default function HomePage() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-40 px-10">
-        <p className="text-3xl max-w-4xl">
+      <section className="px-10">
+        <p className="text-3xl max-w-4xl leading-relaxed">
           The future will not be automated.<br />
-          It will be engineered.
+          <span className="text-white/70">It will be engineered.</span>
         </p>
       </section>
 
       {/* Framework Overview */}
-      <section className="py-40 px-10">
+      <section className="px-10">
         <h2 className="text-4xl mb-20">
           Global Innovation Lab Framework
         </h2>
 
-        <ul className="space-y-6 text-xl">
+        <ul className="space-y-6 text-xl text-white/80">
           <li>Technology Infrastructure</li>
           <li>Experiential Learning</li>
           <li>Innovation Culture</li>
@@ -44,22 +44,22 @@ export default function HomePage() {
       </section>
 
       {/* Flagship Focus */}
-      <section className="py-40 px-10">
+      <section className="px-10">
         <h2 className="text-4xl mb-10">
           AI Forklift Safety System
         </h2>
 
-        <p className="text-xl max-w-3xl">
+        <p className="text-xl max-w-3xl text-white/80 leading-relaxed">
           Transforming industrial vehicles into intelligent, perceptive systems
           capable of real‑time awareness and autonomous safety decisions.
         </p>
       </section>
 
       {/* CTA */}
-      <section className="py-40 px-10">
-        <h2 className="text-4xl max-w-4xl">
+      <section className="px-10 pb-40">
+        <h2 className="text-4xl max-w-4xl leading-tight">
           The future isn’t something you study.<br />
-          It’s something you build.
+          <span className="text-white/70">It’s something you build.</span>
         </h2>
       </section>
 
