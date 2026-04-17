@@ -11,9 +11,14 @@ export default function HomePage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="min-h-screen flex items-center px-10"
+        className="relative min-h-screen flex items-center px-10 overflow-hidden"
       >
-        <div className="max-w-5xl">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.14),transparent_65%)]" />
+        <div className="absolute inset-0 opacity-[0.06] bg-[url('/noise.png')]" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl">
           <p className="mb-6 text-sm uppercase tracking-widest text-white/60">
             Brighture
           </p>

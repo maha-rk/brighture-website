@@ -20,15 +20,37 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Header */}
-        <header className="w-full p-6">
-          <nav className="max-w-7xl mx-auto flex gap-8 text-sm uppercase tracking-wider">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/ai-labs">AI Labs</Link>
-            <Link href="/ai-trainings">AI Trainings</Link>
-            <Link href="/faq">FAQ</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
+        <header className="w-full px-10 py-6">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+
+            {/* Brand */}
+            <div className="text-lg tracking-tight font-medium">
+              Brighture
+            </div>
+
+            {/* Navigation */}
+            <nav className="flex gap-10 text-sm uppercase tracking-wider text-white/80">
+              <a href="/" className="hover:text-white transition-colors">
+                Home
+              </a>
+              <a href="/about" className="hover:text-white transition-colors">
+                About
+              </a>
+              <a href="/ai-labs" className="hover:text-white transition-colors">
+                AI Labs
+              </a>
+              <a href="/ai-trainings" className="hover:text-white transition-colors">
+                AI Trainings
+              </a>
+              <a href="/faq" className="hover:text-white transition-colors">
+                FAQ
+              </a>
+              <a href="/contact" className="hover:text-white transition-colors">
+                Contact
+              </a>
+            </nav>
+
+          </div>
         </header>
 
         {/* Page content */}
