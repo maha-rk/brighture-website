@@ -19,10 +19,6 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl">
-          <p className="mb-6 text-sm uppercase tracking-widest text-white/60">
-            Brighture
-          </p>
-
           <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-semibold leading-tight">
             Engineering Human Intelligence
             <br />

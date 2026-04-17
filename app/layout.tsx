@@ -1,3 +1,4 @@
+import Header from "./components/Header"
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black text-white antialiased`}>
         {/* Header */}
-        <header className="w-full px-10 py-6">
+        <Header className="w-full px-10 py-6">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
 
             {/* Brand */}
@@ -51,7 +52,7 @@ export default function RootLayout({
             </nav>
 
           </div>
-        </header>
+        </Header>
 
         {/* Page content */}
         <main className="min-h-screen">
