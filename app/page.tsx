@@ -4,11 +4,20 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center px-10">
-        <div>
-          <h1 className="text-5xl font-semibold max-w-3xl">
+        <div className="max-w-5xl">
+          <p className="mb-6 text-sm uppercase tracking-widest text-white/60">
+            Brighture
+          </p>
+
+          <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-semibold leading-tight">
             Engineering Human Intelligence<br />
             for the AI Future
           </h1>
+
+          <p className="mt-8 max-w-2xl text-lg text-white/70">
+            Building AI innovation labs, robotics ecosystems, and future‑ready
+            learning environments for the next generation.
+          </p>
         </div>
       </section>
 
