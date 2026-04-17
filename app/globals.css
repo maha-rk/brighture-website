@@ -24,3 +24,32 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes band-slide {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes band-move-0 {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40%); }
+}
+
+@keyframes band-move-1 {
+  from { transform: translateY(-20%); }
+  to { transform: translateY(20%); }
+}
+
+@keyframes band-move-2 {
+  from { transform: translateY(10%); }
+  to { transform: translateY(-30%); }
+}
+
+@keyframes signal-scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-60%);
+  }
+}
