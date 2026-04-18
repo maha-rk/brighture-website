@@ -1,0 +1,17 @@
+<svg width="490" height="132" viewBox="0 0 490 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Brighture</title>
+  <style>
+    .wordmark {
+      fill: #FFFFFF;
+      font-family: "Comfortaa", "Avenir Next", "Trebuchet MS", sans-serif;
+      font-size: 92px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .caret {
+      fill: #FFFFFF;
+    }
+  </style>
+  <text x="6" y="96" class="wordmark">brighture</text>
+  <path class="caret" d="M283 9L300 37H266L283 9Z"/>
+</svg>
