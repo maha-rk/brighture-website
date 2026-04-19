@@ -1,0 +1,171 @@
+/* RESET */
+.page * { box-sizing: border-box; margin: 0; padding: 0; }
+.page { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+
+/* HERO */
+.hero {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 80px 80px; background: #f0f0fa; min-height: 520px; gap: 60px;
+}
+.heroLeft { max-width: 520px; }
+.badge {
+  display: inline-block; border: 1px solid #bbb; border-radius: 999px;
+  padding: 6px 16px; font-size: 12px; font-weight: 600; color: #4f46e5; letter-spacing: 0.5px;
+  margin-bottom: 28px; background: #fff;
+}
+.heroTitle { font-size: 64px; font-weight: 800; line-height: 1.05; margin-bottom: 24px; }
+.blue   { color: #4f46e5; }
+.purple { color: #a855f7; }
+.orange { color: #e06b2a; }
+.heroDesc { font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 36px; }
+.heroButtons { display: flex; gap: 16px; }
+.btnPrimary {
+  background: #4f46e5; color: #fff; border: none; border-radius: 10px;
+  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.btnSecondary {
+  background: #fff; color: #111; border: 1.5px solid #ddd; border-radius: 10px;
+  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
+}
+.heroImageBox {
+  width: 420px; min-width: 320px; height: 580px; background: #d0d0e8; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center; color: #888; font-size: 14px; flex-shrink: 0;
+}
+
+/* LEVEL SECTION */
+.levelSection { padding: 80px 80px; border-bottom: 1px solid #eee; }
+.levelHeader { display: flex; align-items: flex-start; gap: 28px; margin-bottom: 48px; }
+.levelBubble {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.l1 { background: #4f46e5; }
+.l2 { background: #22c55e; }
+.l3 { background: #f59e0b; }
+.l4 { background: #8b5cf6; }
+
+.levelMeta { flex: 1; }
+.levelBadge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 6px; margin-bottom: 12px; border: 1px solid #e5e5e5;
+}
+.levelBadge .dot { width: 10px; height: 10px; border-radius: 2px; }
+.levelBadge.l1 { color: #4f46e5; background: #eef2ff; border-color: #c7d2fe; }
+.levelBadge.l1 .dot { background: #4f46e5; }
+.levelBadge.l2 { color: #16a34a; background: #f0fdf4; border-color: #bbf7d0; }
+.levelBadge.l2 .dot { background: #22c55e; }
+.levelBadge.l3 { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+.levelBadge.l3 .dot { background: #f59e0b; }
+.levelBadge.l4 { color: #7c3aed; background: #f5f3ff; border-color: #ddd6fe; }
+.levelBadge.l4 .dot { background: #8b5cf6; }
+
+.levelTitle { font-size: 36px; font-weight: 800; color: #111; margin-bottom: 10px; }
+.levelDesc { font-size: 14px; color: #666; line-height: 1.7; font-style: italic; max-width: 560px; }
+
+.levelRight { display: flex; flex-direction: column; align-items: flex-end; }
+.levelImageBox {
+  width: 200px; height: 160px; background: #d8d8e8; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; color: #888; font-size: 12px;
+}
+
+/* full header row with image */
+.levelHeaderRow { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
+.levelHeaderLeft { display: flex; align-items: flex-start; gap: 28px; flex: 1; }
+
+/* DOMAIN CARDS */
+.domainsGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
+.domainCard {
+  border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px 16px; background: #fff;
+}
+.domainCard.highlighted { border-color: #111; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.domainIcon { font-size: 28px; margin-bottom: 12px; }
+.domainCard h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.domainCard ul { list-style: none; }
+.domainCard ul li { font-size: 12px; color: #555; padding: 2px 0; display: flex; align-items: flex-start; gap: 6px; }
+.domainCard ul li::before { content: '·'; color: #999; }
+
+/* LEARNING OUTCOMES */
+.outcomes { border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.outcomesLabel { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-right: 8px; }
+.outcomeTag {
+  background: #f5f5f5; border: 1px solid #e5e5e5; border-radius: 6px;
+  padding: 6px 14px; font-size: 13px; color: #444; font-weight: 500;
+}
+
+/* HOW WE TEACH */
+.methodology { background: #0f1424; padding: 80px; }
+.sectionLabel {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #818cf8; text-transform: uppercase;
+  justify-content: center; margin-bottom: 16px;
+}
+.sectionLabel::before { content: '—'; }
+.methodologyHeader { text-align: center; margin-bottom: 48px; }
+.methodologyHeader h2 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+.methodologyHeader p { font-size: 15px; color: #aaa; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+.methodCards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 28px; }
+.methodCard {
+  background: #1a1f2e; border-radius: 12px; padding: 24px 16px; text-align: center;
+  color: #ccc; font-size: 13px; font-weight: 600; line-height: 1.4;
+}
+.methodIcon { font-size: 26px; margin-bottom: 14px; }
+
+.benefitsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 36px; }
+.benefitCard {
+  background: #1a1f2e; border-radius: 12px; padding: 20px 20px; display: flex; align-items: flex-start; gap: 12px;
+}
+.benefitCheck {
+  width: 24px; height: 24px; border-radius: 50%; background: #4f46e5;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; color: #fff;
+}
+.benefitCard p { font-size: 13px; color: #ccc; line-height: 1.6; }
+
+.methodImages { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.methodImageBox {
+  height: 200px; background: #2a2f3e; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px;
+}
+
+/* ACCREDITATION */
+.accreditation { padding: 80px; background: #fff; }
+.accreditationHeader { text-align: center; margin-bottom: 48px; }
+.sectionLabelDark {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #4f46e5; text-transform: uppercase;
+  justify-content: center; margin-bottom: 16px;
+}
+.sectionLabelDark::before { content: '—'; }
+.accreditationHeader h2 { font-size: 38px; font-weight: 800; color: #111; margin-bottom: 14px; line-height: 1.2; }
+.accreditationHeader p { font-size: 15px; color: #666; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+.stemBadge {
+  width: 160px; height: 120px; border: 1px solid #ddd; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 40px; background: #fff;
+  color: #888; font-size: 13px;
+}
+
+.globalBox {
+  background: #f0f0fa; border-radius: 16px; padding: 36px 40px; text-align: center; margin-bottom: 48px;
+}
+.globalBox h3 { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 10px; }
+.globalBox p { font-size: 14px; color: #666; max-width: 480px; margin: 0 auto 20px; line-height: 1.6; }
+.globalChecks { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.globalCheck { font-size: 13px; color: #4f46e5; font-weight: 500; }
+.globalCheck::before { content: '✓ '; }
+
+.partnersGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.partnerCard { border: 1px solid #e5e5e5; border-radius: 16px; padding: 32px; }
+.partnerLogoBox {
+  width: 120px; height: 60px; border: 1px solid #e5e5e5; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 18px; font-weight: 800;
+}
+.partnerCard h4 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.partnerCard .partnerSub { font-size: 12px; color: #4f46e5; font-style: italic; margin-bottom: 12px; }
+.partnerCard p { font-size: 13px; color: #666; line-height: 1.6; }
+
+/* FOOTER */
+.footer { background: #0f1117; color: #888; text-align: center; padding: 32px; font-size: 13px; }
