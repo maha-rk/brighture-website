@@ -26,17 +26,25 @@ export default function GlobalPresence() {
     <section className="w-full bg-black">
 
       {/* ================= HEADER ABOVE IMAGES ================= */}
-      <div className="bg-black px-6 py-14 text-center">
-        {/* Title — ONE LINE, PLAYFAIR, ALL CAPS */}
-        <h2 className="font-playfair text-white text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wide uppercase whitespace-nowrap">
-          ENGINEERING INNOVATION ECOSYSTEMS, GLOBALLY
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-120px" }}
+        className="bg-black px-6 py-6 text-center"
+      >
+        {/* Title — Space Grotesk, clean and modern */}
+        <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight uppercase" 
+            style={{ letterSpacing: "0.02em" }}>
+          Engineering innovation ecosystems, globally.
         </h2>
 
-        {/* Body — ONE LINE, PLAYFAIR */}
-        <p className="font-playfair mt-5 text-white/75 text-base md:text-lg whitespace-nowrap">
-          Brighture operates across strategically important regions, enabling close collaboration with institutions, enterprises, and innovation ecosystems worldwide.
+        {/* Caption — Regular weight, single line */}
+        <p className="mt-2 text-white/75 text-xs md:text-sm lg:text-base max-w-7xl mx-auto whitespace-nowrap"
+           style={{ letterSpacing: "0.01em" }}>
+          Brighture operates through a growing international network, supporting and enabling close collaboration with institutions, enterprises, and innovation ecosystems worldwide.
         </p>
-      </div>
+      </motion.div>
 
       {/* ================= IMAGE SLIDER ================= */}
       <div className="relative w-full h-[90vh] overflow-hidden">
