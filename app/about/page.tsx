@@ -267,8 +267,10 @@ export default function AboutPage() {
           </div>
         </div>
       </FadeSection>
-
+      <GlobalPresence />
     </main>
   );
 }
-``
+''
+
+import GlobalPresence from "@/app/components/GlobalPresence";
