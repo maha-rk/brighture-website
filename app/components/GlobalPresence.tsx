@@ -7,7 +7,7 @@ const locations = [
   { label: "BENGALURU, INDIA", image: "/images/global/bangalore.webp" },
   { label: "DUBAI, UNITED ARAB EMIRATES", image: "/images/global/dubai.jpg" },
   { label: "LONDON, UNITED KINGDOM", image: "/images/global/london.jpg" },
-  { label: "TEXAS, UNITED STATES", image: "/images/global/texas.jpg" },
+  { label: "TEXAS, UNITED STATES OF AMERICA", image: "/images/global/texas.jpg" },
 ];
 
 export default function GlobalPresence() {
@@ -36,7 +36,7 @@ export default function GlobalPresence() {
         {/* Title — Space Grotesk, clean and modern */}
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight uppercase" 
             style={{ letterSpacing: "0.02em" }}>
-          Engineering innovation ecosystems, globally.
+          Engineering innovation ecosystems. globally.
         </h2>
 
         {/* Caption — Regular weight, single line */}

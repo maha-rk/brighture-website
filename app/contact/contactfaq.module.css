@@ -1,0 +1,203 @@
+/* RESET */
+.page * { box-sizing: border-box; margin: 0; padding: 0; }
+.page { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
+
+/* ─── CONTACT PAGE ─── */
+
+/* HERO */
+.contactHero {
+  padding: 60px 80px 80px;
+  background: linear-gradient(135deg, #f0f0fa 0%, #e8e8f8 100%);
+  min-height: 360px;
+}
+.badge {
+  display: inline-block; border: 1px solid #bbb; border-radius: 999px;
+  padding: 5px 14px; font-size: 11px; font-weight: 600; color: #555;
+  letter-spacing: 0.5px; margin-bottom: 24px; background: #fff; text-transform: uppercase;
+}
+.contactHero h1 { font-size: 54px; font-weight: 800; line-height: 1.1; color: #111; margin-bottom: 20px; }
+.blue   { color: #4f46e5; }
+.purple { color: #a855f7; }
+.orange { color: #e06b2a; }
+.contactHero p { font-size: 16px; color: #555; line-height: 1.7; max-width: 440px; }
+
+/* CONTACT BODY */
+.contactBody { padding: 72px 80px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+
+/* LEFT COL */
+.contactLeft { }
+.sectionLabel {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #4f46e5;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.sectionLabel::before { content: '—'; }
+.contactLeft h2 { font-size: 30px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+.contactLeft p { font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 28px; }
+
+.contactInfo { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.contactInfoItem { display: flex; align-items: flex-start; gap: 12px; }
+.contactIcon {
+  width: 36px; height: 36px; border-radius: 8px; background: #f0f0fa;
+  display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+}
+.contactInfoItem div { display: flex; flex-direction: column; }
+.contactInfoItem .infoLabel { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #888; margin-bottom: 2px; }
+.contactInfoItem a, .contactInfoItem span { font-size: 14px; color: #111; font-weight: 500; text-decoration: none; }
+
+.officesLabel { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 14px; }
+.officesList { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.officeItem { display: flex; align-items: flex-start; gap: 10px; }
+.officeFlag { font-size: 20px; flex-shrink: 0; }
+.officeName { font-size: 14px; font-weight: 600; color: #111; }
+.officeSub { font-size: 12px; color: #888; }
+
+.whoWeWork { margin-bottom: 24px; }
+.whoWeWork .whoLabel { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+.whoTags { display: flex; flex-wrap: wrap; gap: 8px; }
+.whoTag { font-size: 12px; color: #555; padding: 5px 14px; border: 1px solid #ddd; border-radius: 6px; background: #fff; }
+
+.partnerBox { background: #fffbf0; border: 1px solid #fde68a; border-radius: 12px; padding: 18px 20px; }
+.partnerBoxTitle { font-size: 13px; font-weight: 700; color: #d97706; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.partnerBox p { font-size: 13px; color: #666; line-height: 1.6; }
+
+/* RIGHT COL — FORM */
+.formCard {
+  background: #fff; border: 1px solid #e5e5e5; border-radius: 20px;
+  padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.formCard h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.formCard .formSubtitle { font-size: 13px; color: #888; margin-bottom: 28px; }
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.formGroup { display: flex; flex-direction: column; gap: 6px; }
+.formGroup.full { grid-column: 1 / -1; }
+.formLabel { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #888; }
+.formLabel .req { color: #4f46e5; }
+.formInput, .formSelect, .formTextarea {
+  border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px;
+  font-size: 14px; color: #111; font-family: inherit; outline: none;
+  transition: border-color 0.2s;
+}
+.formInput:focus, .formSelect:focus, .formTextarea:focus { border-color: #4f46e5; }
+.formInput::placeholder, .formTextarea::placeholder { color: #bbb; }
+.formTextarea { resize: vertical; min-height: 110px; }
+.formSelect { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+
+.captchaRow {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px;
+}
+.captchaLeft { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
+.captchaCheckbox { width: 18px; height: 18px; border: 2px solid #ddd; border-radius: 3px; flex-shrink: 0; }
+.captchaRight { font-size: 10px; color: #aaa; text-align: right; line-height: 1.4; }
+.captchaLogo { font-size: 18px; }
+
+.submitBtn {
+  width: 100%; background: #4f46e5; color: #fff; border: none; border-radius: 10px;
+  padding: 14px; font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 12px;
+  transition: background 0.2s;
+}
+.submitBtn:hover { background: #4338ca; }
+.formDisclaimer { font-size: 12px; color: #888; text-align: center; line-height: 1.5; }
+.formDisclaimer a { color: #4f46e5; text-decoration: none; }
+
+/* GLOBAL NETWORK */
+.globalNetwork { background: #0f1424; padding: 72px 80px; }
+.globalHeader { text-align: center; margin-bottom: 48px; }
+.globalSectionLabel {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #818cf8;
+  text-transform: uppercase; justify-content: center; margin-bottom: 14px;
+}
+.globalSectionLabel::before { content: '—'; }
+.globalHeader h2 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+.globalHeader p { font-size: 15px; color: #aaa; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+.locationsGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.locationCard {
+  background: #1a1f2e; border-radius: 14px; padding: 28px 20px; text-align: center;
+}
+.locationFlag { font-size: 36px; margin-bottom: 14px; display: block; }
+.locationCity { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.locationCountry { font-size: 13px; color: #888; margin-bottom: 12px; }
+.locationTag {
+  display: inline-block; background: #2a2f3e; color: #aaa; font-size: 11px;
+  padding: 5px 12px; border-radius: 999px; font-weight: 500;
+}
+
+/* ─── FAQ PAGE ─── */
+.faqHero {
+  padding: 60px 80px 80px;
+  background: linear-gradient(135deg, #f0f0fa 0%, #e8e8f8 100%);
+  min-height: 320px;
+}
+.faqHero h1 { font-size: 54px; font-weight: 800; line-height: 1.1; color: #111; margin-bottom: 8px; }
+
+.faqSection { padding: 72px 80px; }
+.faqSectionHeader { text-align: center; margin-bottom: 40px; }
+.faqSectionLabelCenter {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #4f46e5;
+  text-transform: uppercase; justify-content: center; margin-bottom: 14px;
+}
+.faqSectionLabelCenter::before { content: '—'; }
+.faqSectionHeader h2 { font-size: 36px; font-weight: 800; color: #111; line-height: 1.2; }
+
+.faqList { display: flex; flex-direction: column; gap: 0; max-width: 860px; margin: 0 auto; }
+.faqItem {
+  border: 1px solid #e5e5e5; border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faqItem.open { border-color: #4f46e5; border-width: 1.5px; }
+.faqHeader {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 18px 20px; cursor: pointer; background: #fff;
+}
+.faqHeaderLeft { display: flex; align-items: center; gap: 12px; }
+.faqCat {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px; flex-shrink: 0;
+}
+.faqCat.general   { color: #8b5cf6; background: #f5f3ff; }
+.faqCat.ailabs    { color: #4f46e5; background: #eef2ff; }
+.faqCat.trainings { color: #16a34a; background: #f0fdf4; }
+.faqCat.products  { color: #e06b2a; background: #fff7ed; }
+
+.faqQuestion { font-size: 14px; font-weight: 500; color: #111; }
+.faqItem.open .faqQuestion { color: #4f46e5; font-weight: 600; }
+.faqToggle {
+  width: 28px; height: 28px; border-radius: 50%; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 16px; font-weight: 300; transition: all 0.2s;
+  background: #f0f0f0; color: #555;
+}
+.faqItem.open .faqToggle { background: #4f46e5; color: #fff; }
+
+.faqAnswer {
+  padding: 0 20px 20px; font-size: 14px; color: #555; line-height: 1.8;
+  border-top: 1px solid #eef2ff;
+}
+.faqAnswer strong { font-weight: 700; color: #111; }
+.faqAnswer a { color: #4f46e5; text-decoration: none; }
+
+/* FAQ CTA */
+.faqCta {
+  background: linear-gradient(135deg, #0f1424 0%, #1e1b4b 100%);
+  padding: 80px; text-align: center;
+}
+.faqCta h2 { font-size: 34px; font-weight: 800; color: #fff; line-height: 1.3; margin-bottom: 16px; }
+.faqCta .ctaBlue { color: #818cf8; }
+.faqCta p { font-size: 15px; color: #aaa; max-width: 520px; margin: 0 auto 12px; line-height: 1.7; }
+.faqCta .ctaPointer { font-size: 14px; color: #aaa; margin-bottom: 32px; }
+.ctaButtons { display: flex; gap: 16px; justify-content: center; }
+.ctaBtnOutline {
+  background: transparent; color: #fff; border: 1.5px solid #fff; border-radius: 8px;
+  padding: 12px 28px; font-size: 14px; font-weight: 600; cursor: pointer;
+  text-decoration: none; display: flex; align-items: center; gap: 6px;
+}
+.ctaBtnFilled {
+  background: #fff; color: #111; border: none; border-radius: 8px;
+  padding: 12px 28px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none;
+}
+
+/* FOOTER */
+.footer { background: #0f1117; color: #888; text-align: center; padding: 32px; font-size: 13px; }

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './aiLabs.module.css';
+import heroStyles from './heroSection.module.css';
 
 type TabKey = 'labs' | 'tech' | 'learning';
 
@@ -10,59 +12,134 @@ export default function AILabsPage() {
   const [activeTab, setActiveTab] = useState<TabKey>('labs');
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${heroStyles.lightTheme}`}>
 
-      {/* NAV */}
-      <div className={styles.navWrapper}>
-        <nav className={styles.nav}>
-          <Link href="/" className={styles.logo}>
-            <div className={styles.logoBlock}>
-              <span>brigh<span className={styles.logoDot}>t</span>ure</span>
-              <span className={styles.logoSub}>intelligence simplified.</span>
-            </div>
-          </Link>
-          <ul className={styles.navList}>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/about" className={styles.active}>About Us</Link></li>
-            <li><Link href="/ai-labs">AI Labs</Link></li>
-            <li><Link href="/ai-trainings">AI Trainings</Link></li>
-            <li><Link href="/ai-products">AI Products</Link></li>
-            <li><Link href="/platform">Platform</Link></li>
-            <li><Link href="#contact">Contact</Link></li>
-          </ul>
-        </nav>
-      </div>
+      {/* MODERN HERO SECTION */}
+      <motion.section
+        className={heroStyles.heroSection}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        {/* Background Elements */}
+        <div className={heroStyles.backgroundLayer}>
+          <div className={heroStyles.gridPattern} />
+          <div className={heroStyles.bgGradient} />
+        </div>
 
-      {/* HERO */}
-      <section className={styles.hero}>
-        <div className={styles.heroLeft}>
-          <div className={styles.badge}>AI LABS &amp; INNOVATION PROGRAMS</div>
-          <h1 className={styles.heroTitle}>
-            Build Your<br />
-            <span className={styles.blue}>Innovation</span><br />
-            <span className={styles.orange}>Ecosystem</span>
-          </h1>
-          <p className={styles.heroDesc}>
-            Brighture partners with institutions worldwide to create AI Innovation Labs and technology
-            ecosystems that empower the next generation of innovators — from schools to global enterprise campuses.
-          </p>
-          <div className={styles.heroButtons}>
-            <Link href="#contact" className={styles.btnPrimary}>Get in Touch →</Link>
-            <Link href="#programs" className={styles.btnSecondary}>View Programs</Link>
+        {/* Content */}
+        <div className={heroStyles.contentWrapper}>
+          <div className={heroStyles.heroContent}>
+            
+            {/* LEFT - Text */}
+            <motion.div
+              className={heroStyles.leftColumn}
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+
+              <h1 className={heroStyles.headline}>
+                build the <span className={heroStyles.gradientText}>future</span> of <br />
+                <span className={heroStyles.highlightText}>innovation</span> ecosystems.
+              </h1>
+
+              <p className={heroStyles.description}>
+                Brighture partners with institutions worldwide to create AI Innovation Labs
+                and technology ecosystems that empower the next generation of innovators —
+                from schools to global enterprise campuses.
+              </p>
+
+              <div className={heroStyles.metrics}>
+                <div className={heroStyles.metric}>
+                  <span className={heroStyles.metricValue}>4</span>
+                  <span className={heroStyles.metricLabel}>Innovation Programs</span>
+                </div>
+
+                <div className={heroStyles.metric}>
+                  <span className={heroStyles.metricValue}>8+</span>
+                  <span className={heroStyles.metricLabel}>Specialized Lab Types</span>
+                </div>
+
+                <div className={heroStyles.metric}>
+                  <span className={heroStyles.metricValue}>4+</span>
+                  <span className={heroStyles.metricLabel}>Global Locations</span>
+                </div>
+
+                <div className={heroStyles.metric}>
+                  <span className={heroStyles.metricValue}>∞</span>
+                  <span className={heroStyles.metricLabel}>Innovation Possibilities</span>
+                </div>
+              </div>
+
+              <div className={heroStyles.ctaGroup}>
+                <Link href="#contact" className={heroStyles.btnPrimary}>
+                  <span>Get in Touch</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </Link>
+                <Link href="#programs" className={heroStyles.btnSecondary}>
+                  <span>Explore Programs</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* RIGHT - Visual */}
+            <motion.div
+              className={heroStyles.rightColumn}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className={heroStyles.visualContainer}>
+                <div className={heroStyles.shapeBg}>
+                  <div className={heroStyles.shape1} />
+                  <div className={heroStyles.shape2} />
+                  <div className={heroStyles.shape3} />
+                </div>
+                <div className={heroStyles.imageBox}>
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    className={heroStyles.heroVideo}
+                  >
+                    <source src="/video/ai-labs/hero-labs.mp4" type="video/mp4" />
+                    <img src="/images/hero-robots.png" alt="AI Robotics" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </video>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
-        <div className={styles.heroImageBox}>[Image Placeholder]</div>
-      </section>
+      </motion.section>
 
       {/* INNOVATION PROGRAMS */}
       <section id="programs" className={styles.programs}>
         <div className={styles.programsHeader}>
           <div className={styles.sectionLabel}>INNOVATION PROGRAMS</div>
           <h2>Choose Your<br />Innovation Path</h2>
-          <p>Four structured programs — from foundational AI exploration to full institutional innovation campuses. Each designed to grow with your institution&apos;s ambition.</p>
+          <p>
+            Four structured programs — from foundational AI exploration to full
+            institutional innovation campuses. Each designed to grow with your
+            institution&apos;s ambition.
+          </p>
         </div>
-        <div className={styles.programsGrid}>
 
+        <div className={styles.programsGrid}>
           {/* Genesis */}
           <div className={`${styles.programCard} ${styles.genesis}`}>
             <div className={`${styles.programIcon} ${styles.genesis}`} />
@@ -102,9 +179,9 @@ export default function AILabsPage() {
               <li>Full-stack AI &amp; Robotics Labs</li>
               <li>Autonomous Systems &amp; Drones</li>
               <li>GPU-powered AI Infrastructure</li>
-              <li>Digital Twin &amp; Simulation</li>
+              <li>Industry-aligned Research</li>
             </ul>
-            <div className={`${styles.idealTag} ${styles.discovery}`}>✓ Ideal for Universities &amp; Research Centers</div>
+            <div className={`${styles.idealTag} ${styles.discovery}`}>✓ Ideal for Research Universities &amp; Enterprise R&amp;D</div>
             <Link href="#discovery" className={styles.learnMore}>Learn More →</Link>
           </div>
 
@@ -112,242 +189,357 @@ export default function AILabsPage() {
           <div className={`${styles.programCard} ${styles.nexus}`}>
             <div className={`${styles.programIcon} ${styles.nexus}`} />
             <h3>Nexus Campus</h3>
-            <div className={styles.sub}>For Institutional AI Ecosystem</div>
+            <div className={styles.sub}>Full-Scale Innovation Ecosystem</div>
             <ul>
-              <li>End-to-End Innovation Campus</li>
-              <li>Industrial &amp; Physical AI Platforms</li>
-              <li>Smart Manufacturing Labs</li>
-              <li>Cloud + AI Compute Infrastructure</li>
+              <li>Complete Innovation Campus</li>
+              <li>Integrated Research &amp; Industry Programs</li>
+              <li>Startup &amp; Entrepreneur Incubation</li>
+              <li>Enterprise Technology Partnerships</li>
             </ul>
-            <div className={`${styles.idealTag} ${styles.nexus}`}>✓ Ideal for Universities, Enterprises &amp; Governments</div>
+            <div className={`${styles.idealTag} ${styles.nexus}`}>✓ Ideal for Premier Universities &amp; Global Enterprises</div>
             <Link href="#nexus" className={styles.learnMore}>Learn More →</Link>
           </div>
-
         </div>
       </section>
 
       {/* TARGET AUDIENCE */}
-      <section className={styles.audience}>
+      <section className={styles.audience} id="audience">
         <div className={styles.audienceHeader}>
-          <div className={styles.sectionLabel}>WHO IT&apos;S FOR</div>
-          <h2>Target Audience</h2>
-          <p>Each program is designed for a specific institution type and level of innovation maturity.</p>
+          <h2>Who Should Explore Brighture?</h2>
+          <p>Whether you&apos;re a school, university, enterprise, or research center, we have a program designed for your institution&apos;s innovation journey.</p>
         </div>
         <div className={styles.audienceGrid}>
+          {/* Genesis Audience */}
           <div className={`${styles.audienceCard} ${styles.genesis}`}>
-            <div className={`${styles.audienceIcon} ${styles.programIcon} ${styles.genesis}`} />
-            <h3>Genesis</h3>
-            <div className={styles.level}>FOUNDATION LEVEL</div>
-            <p>Schools and early-stage universities taking their first steps into AI, robotics, and technology innovation.</p>
+            <div className={`${styles.audienceIcon} ${styles.genesis}`} />
+            <h3>Schools &amp; <br/>Colleges</h3>
+            <p>Introduce students to AI and robotics through hands-on exploration and foundational learning.</p>
+            <div className={`${styles.level} ${styles.genesis}`}>IDEAL FOR GENESIS</div>
           </div>
+
+          {/* Acceleration Audience */}
           <div className={`${styles.audienceCard} ${styles.accel}`}>
-            <div className={`${styles.audienceIcon} ${styles.programIcon} ${styles.accel}`} />
-            <h3>Acceleration</h3>
-            <div className={styles.level}>INTERMEDIATE LEVEL</div>
-            <p>Schools, universities, and skill development programs ready to build real-world AI and robotics systems.</p>
+            <div className={`${styles.audienceIcon} ${styles.accel}`} />
+            <h3>Universities &amp; <br/>Skill Programs</h3>
+            <p>Equip students with applied engineering skills and real-world problem-solving capabilities.</p>
+            <div className={`${styles.level} ${styles.accel}`}>IDEAL FOR ACCELERATION</div>
           </div>
+
+          {/* Discovery Audience */}
           <div className={`${styles.audienceCard} ${styles.discovery}`}>
-            <div className={`${styles.audienceIcon} ${styles.programIcon} ${styles.discovery}`} />
-            <h3>Discovery</h3>
-            <div className={styles.level}>ADVANCED LEVEL</div>
-            <p>Universities, innovation centers, and research institutions pursuing cutting-edge AI development and autonomous systems.</p>
+            <div className={`${styles.audienceIcon} ${styles.discovery}`} />
+            <h3>Research &amp; <br/>Innovation Centers</h3>
+            <p>Advance cutting-edge research with full-stack AI labs and autonomous systems infrastructure.</p>
+            <div className={`${styles.level} ${styles.discovery}`}>IDEAL FOR DISCOVERY</div>
           </div>
+
+          {/* Nexus Audience */}
           <div className={`${styles.audienceCard} ${styles.nexus}`}>
-            <div className={`${styles.audienceIcon} ${styles.programIcon} ${styles.nexus}`} />
-            <h3>Nexus Campus</h3>
-            <div className={styles.level}>ENTERPRISE LEVEL</div>
-            <p>Universities, enterprises, and government entities building full-scale institutional AI innovation ecosystems.</p>
+            <div className={`${styles.audienceIcon} ${styles.nexus}`} />
+            <h3>Global Enterprises &amp; <br/>Institutions</h3>
+            <p>Build complete innovation campuses with research, entrepreneurship, and industry integration.</p>
+            <div className={`${styles.level} ${styles.nexus}`}>IDEAL FOR NEXUS CAMPUS</div>
           </div>
         </div>
       </section>
 
       {/* EVERY PROGRAM INCLUDES */}
-      <div className={styles.everyProgram}>
-        <div className={styles.epLabel}>Every Program Includes</div>
-        <div className={styles.epItem}>Innovation Lab Design &amp; Planning</div>
-        <div className={styles.epItem}>Technology Infrastructure Deployment</div>
-        <div className={styles.epItem}>Hardware and Software Platforms</div>
-        <div className={styles.epItem}>Educator Training &amp; Enablement</div>
-        <div className={styles.epItem}>Project-Based Learning Frameworks</div>
-        <div className={styles.epItem}>Innovation Challenges &amp; Hackathons</div>
-      </div>
+      <section className={styles.everyProgram}>
+        <div className={styles.epLabel}>Every Brighture Program Includes:</div>
+        <div className={styles.epItem}>Advanced Educator Training &amp; Support</div>
+        <div className={styles.epItem}>Cutting-edge Technology &amp; Equipment</div>
+        <div className={styles.epItem}>Industry Partnership Ecosystem</div>
+        <div className={styles.epItem}>Student Success &amp; Career Pathways</div>
+        <div className={styles.epItem}>Ongoing Innovation Consulting</div>
+      </section>
 
       {/* WHY BRIGHTURE */}
-      <div className={styles.whyBrighture}>
-        <h3>Why Institutions Choose Brighture</h3>
+      <section className={styles.whyBrighture}>
+        <h3>Why Choose Brighture?</h3>
         <div className={styles.whyGrid}>
-          <div className={styles.whyCard}><div className={styles.whyIcon}>🏛️</div>Future-ready technology infrastructure</div>
-          <div className={styles.whyCard}><div className={styles.whyIcon}>🤖</div>Hands-on AI and robotics experimentation</div>
-          <div className={styles.whyCard}><div className={styles.whyIcon}>🔬</div>Research and innovation capability development</div>
-          <div className={styles.whyCard}><div className={styles.whyIcon}>⚙️</div>Industry-aligned technology programs</div>
-          <div className={styles.whyCard}><div className={styles.whyIcon}>🌐</div>Global innovation ecosystem integration</div>
+          <div className={styles.whyCard}>
+            <div className={styles.whyIcon}>🧠</div>
+            <strong>Cutting-Edge Curriculum</strong>
+            <p>Designed by industry experts and updated continuously.</p>
+          </div>
+          <div className={styles.whyCard}>
+            <div className={styles.whyIcon}>🤝</div>
+            <strong>Industry Partnerships</strong>
+            <p>Connect students with leading tech companies and research labs.</p>
+          </div>
+          <div className={styles.whyCard}>
+            <div className={styles.whyIcon}>🚀</div>
+            <strong>Proven Track Record</strong>
+            <p>100+ institutions, 50K+ trained students worldwide.</p>
+          </div>
+          <div className={styles.whyCard}>
+            <div className={styles.whyIcon}>💡</div>
+            <strong>End-to-End Support</strong>
+            <p>From setup to scaling, we support your innovation journey.</p>
+          </div>
+          <div className={styles.whyCard}>
+            <div className={styles.whyIcon}>🌍</div>
+            <strong>Global Community</strong>
+            <p>Access to a worldwide network of innovators and leaders.</p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* GENESIS DETAIL */}
+      {/* PROGRAM DETAILS - Genesis */}
       <section className={styles.programDetail} id="genesis">
         <div className={styles.programDetailInner}>
           <div className={styles.programDetailLeft}>
             <div className={`${styles.programBadge} ${styles.genesis}`}>
-              <div className={`${styles.badgeDot} ${styles.genesis}`} />GENESIS
+              <div className={`${styles.badgeDot} ${styles.genesis}`} />
+              GENESIS PROGRAM
             </div>
-            <h2>For Early AI &amp; Robotics Learning</h2>
+            <h2>Genesis: Early AI &amp; Robotics Innovation</h2>
             <div className={styles.tagsRow}>
-              <span className={styles.tagPill}>Core Innovation Labs</span>
-              <span className={styles.tagPill}>Foundational AI &amp; Robotics</span>
-              <span className={styles.tagPill}>Hands-on Electronics &amp; IoT</span>
-              <span className={styles.tagPill}>Design Thinking Approach</span>
+              <span className={styles.tagPill}>Foundational</span>
+              <span className={styles.tagPill}>Schools &amp; Colleges</span>
+              <span className={styles.tagPill}>Ages 12-18</span>
             </div>
-            <p>The Genesis program introduces students and early learners to the world of artificial intelligence and robotics through guided, hands-on exploration. This foundational program is designed to spark curiosity, build creative confidence, and establish core technical skills through design thinking and practical experimentation.</p>
+            <p>Genesis is designed for students just beginning their AI and robotics journey. Through hands-on exploration and design thinking, students gain foundational knowledge in artificial intelligence, robotics, electronics, and IoT devices.</p>
+            <p>Perfect for schools and early university programs looking to introduce cutting-edge technology in an engaging, accessible way.</p>
             <div className={styles.metaTags}>
-              <span className={styles.metaTagIdeal}>✓ Ideal for Schools &amp; Early University Programs</span>
-              <span className={styles.metaTagLab}>Lab Focus: Technology exploration and foundational innovation skills.</span>
+              <div className={styles.metaTagIdeal}>Ideal for K-12 &amp; Early University</div>
+              <div className={styles.metaTagLab}>Core Innovation Labs</div>
             </div>
           </div>
-          <div className={styles.programImageBox}>[Image Placeholder]</div>
+          <div className={`${styles.programImageBox} ${styles.genesis}`} />
         </div>
         <div className={styles.detailColumns}>
           <div className={`${styles.detailCol} ${styles.genesis}`}>
-            <h4>Included Innovation Labs</h4>
-            <ul><li>AI Innovation Lab</li><li>Robotics Innovation Lab</li><li>Embedded Systems Innovation Lab</li><li>Innovation Studio</li></ul>
+            <h4>Innovation Labs</h4>
+            <ul>
+              <li>AI Innovation Lab</li>
+              <li>Robotics Lab</li>
+              <li>Electronics &amp; IoT Lab</li>
+              <li>Innovation Studio</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.genesis}`}>
-            <h4>Technology Platforms</h4>
-            <ul><li>Educational robotics platforms</li><li>Microcontrollers and development boards</li><li>Basic AI experimentation platforms</li><li>Sensors and IoT devices</li><li>Electronics prototyping kits</li></ul>
+            <h4>Core Topics</h4>
+            <ul>
+              <li>AI &amp; Machine Learning Basics</li>
+              <li>Robotics Fundamentals</li>
+              <li>Electronics &amp; Circuitry</li>
+              <li>Design Thinking &amp; Innovation</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.genesis}`}>
-            <h4>Learning Programs</h4>
-            <ul><li>Introduction to Artificial Intelligence</li><li>Robotics Programming</li><li>Electronics and Embedded Systems</li><li>Engineering Design Thinking</li></ul>
+            <h4>Learning Format</h4>
+            <ul>
+              <li>Hands-on Project-Based</li>
+              <li>Small Group Collaboration</li>
+              <li>Monthly Challenges &amp; Competitions</li>
+              <li>Student Showcases</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.genesis}`}>
-            <h4>Implementation Support</h4>
-            <ul><li>Lab design consultation</li><li>Hardware setup and installation</li><li>Educator training workshops</li><li>Learning program framework</li></ul>
+            <h4>Support Provided</h4>
+            <ul>
+              <li>Teacher Training Program</li>
+              <li>Lab Equipment &amp; Setup</li>
+              <li>Curriculum Materials</li>
+              <li>Ongoing Technical Support</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ACCELERATION DETAIL */}
+      {/* PROGRAM DETAILS - Acceleration */}
       <section className={styles.programDetail} id="acceleration">
         <div className={styles.programDetailInner}>
           <div className={styles.programDetailLeft}>
             <div className={`${styles.programBadge} ${styles.accel}`}>
-              <div className={`${styles.badgeDot} ${styles.accel}`} />ACCELERATION
+              <div className={`${styles.badgeDot} ${styles.accel}`} />
+              ACCELERATION PROGRAM
             </div>
-            <h2>For Applied Engineering &amp; Prototyping</h2>
+            <h2>Acceleration: Applied Engineering &amp; Prototyping</h2>
             <div className={styles.tagsRow}>
-              <span className={styles.tagPill}>Multi-domain Innovation Labs</span>
-              <span className={styles.tagPill}>AI, CV &amp; Edge Computing</span>
-              <span className={styles.tagPill}>Real-world Product Development</span>
-              <span className={styles.tagPill}>Simulation-based Learning</span>
+              <span className={styles.tagPill}>Advanced</span>
+              <span className={styles.tagPill}>Universities &amp; Skill Centers</span>
+              <span className={styles.tagPill}>Ages 18+</span>
             </div>
-            <p>The Acceleration program moves beyond fundamentals to applied engineering and real-world product development. Learners work across multiple domains — AI, computer vision, edge computing, and automation — building systems that solve genuine challenges through simulation and hands-on prototyping.</p>
+            <p>Acceleration bridges the gap between foundational learning and industry-ready skills. Students work on real-world projects involving AI, computer vision, edge computing, and robotic systems while building portfolio-ready work.</p>
+            <p>Ideal for universities, skill development programs, and emerging tech professionals seeking hands-on experience with cutting-edge technologies.</p>
             <div className={styles.metaTags}>
-              <span className={styles.metaTagIdeal}>✓ Ideal for Schools, Universities &amp; Skill Programs</span>
-              <span className={styles.metaTagLab}>Lab Focus: Development of intelligent systems and real-world applications.</span>
+              <div className={styles.metaTagIdeal}>Ideal for Universities &amp; Skill Programs</div>
+              <div className={styles.metaTagLab}>Multi-Domain Innovation Labs</div>
             </div>
           </div>
-          <div className={styles.programImageBox}>[Image Placeholder]</div>
+          <div className={`${styles.programImageBox} ${styles.accel}`} />
         </div>
         <div className={styles.detailColumns}>
           <div className={`${styles.detailCol} ${styles.accel}`}>
-            <h4>Included Innovation Labs</h4>
-            <ul><li>AI Innovation Lab</li><li>Robotics Innovation Lab</li><li>Computer Vision Innovation Lab</li><li>Embedded Systems Innovation Lab</li><li>Autonomous Systems Lab</li><li>Innovation Studio</li></ul>
+            <h4>Innovation Labs</h4>
+            <ul>
+              <li>AI Innovation Lab</li>
+              <li>Computer Vision Lab</li>
+              <li>Robotics Lab</li>
+              <li>Autonomous Systems Lab</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.accel}`}>
-            <h4>Technology Platforms</h4>
-            <ul><li>Advanced robotics platforms</li><li>AI development workstations</li><li>Computer vision systems</li><li>Edge AI devices</li><li>IoT development platforms</li><li>Simulation environments</li></ul>
+            <h4>Core Topics</h4>
+            <ul>
+              <li>Machine Learning &amp; Deep Learning</li>
+              <li>Computer Vision Systems</li>
+              <li>Autonomous Robotics</li>
+              <li>Edge AI &amp; IoT Applications</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.accel}`}>
-            <h4>Learning Programs</h4>
-            <ul><li>Machine Learning Applications</li><li>Robotics Engineering</li><li>Computer Vision Development</li><li>Automation Systems</li><li>Product Prototyping</li></ul>
+            <h4>Learning Format</h4>
+            <ul>
+              <li>Project-Based Learning</li>
+              <li>Industry Mentorship</li>
+              <li>Capstone Projects</li>
+              <li>Innovation Challenges</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.accel}`}>
-            <h4>Implementation Support</h4>
-            <ul><li>Technology deployment and integration</li><li>Educator certification programs</li><li>Innovation project frameworks</li><li>Student innovation challenges</li></ul>
+            <h4>Support Provided</h4>
+            <ul>
+              <li>Advanced Equipment Setup</li>
+              <li>Educator Certification</li>
+              <li>Industry Connections</li>
+              <li>Career Support Services</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* DISCOVERY DETAIL */}
+      {/* PROGRAM DETAILS - Discovery */}
       <section className={styles.programDetail} id="discovery">
         <div className={styles.programDetailInner}>
           <div className={styles.programDetailLeft}>
             <div className={`${styles.programBadge} ${styles.discovery}`}>
-              <div className={`${styles.badgeDot} ${styles.discovery}`} />DISCOVERY
+              <div className={`${styles.badgeDot} ${styles.discovery}`} />
+              DISCOVERY PROGRAM
             </div>
-            <h2>For Advanced Research &amp; Innovation</h2>
+            <h2>Discovery: Advanced Research &amp; Innovation</h2>
             <div className={styles.tagsRow}>
-              <span className={styles.tagPill}>Full-stack AI &amp; Robotics Labs</span>
-              <span className={styles.tagPill}>Autonomous Systems &amp; Drones</span>
-              <span className={styles.tagPill}>GPU-powered AI Infrastructure</span>
-              <span className={styles.tagPill}>Digital Twin &amp; Simulation</span>
+              <span className={styles.tagPill}>Research-Focused</span>
+              <span className={styles.tagPill}>Research Universities</span>
+              <span className={styles.tagPill}>Graduate &amp; PhD Students</span>
             </div>
-            <p>The Discovery program is built for institutions that are ready to pursue cutting-edge research, advanced autonomous systems, and high-performance AI development. With GPU-powered infrastructure, drone platforms, and digital twin environments, this program transforms universities and research centers into true innovation powerhouses.</p>
+            <p>Discovery enables institutions to establish full-stack AI and robotics research centers. With GPU-powered infrastructure, autonomous systems capability, and industry-aligned research programs, Discovery supports cutting-edge innovation and academic advancement.</p>
+            <p>Perfect for research universities and enterprise R&amp;D centers pursuing advanced AI innovation and autonomous systems development.</p>
             <div className={styles.metaTags}>
-              <span className={styles.metaTagIdeal}>✓ Ideal for Universities &amp; Research Centers</span>
-              <span className={styles.metaTagLab}>Lab Focus: Advanced research, experimentation, and product innovation.</span>
+              <div className={styles.metaTagIdeal}>Ideal for Research Universities &amp; Enterprise R&amp;D</div>
+              <div className={styles.metaTagLab}>Full-Stack AI Research Labs</div>
             </div>
           </div>
-          <div className={styles.programImageBox}>[Image Placeholder]</div>
+          <div className={`${styles.programImageBox} ${styles.discovery}`} />
         </div>
         <div className={styles.detailColumns}>
           <div className={`${styles.detailCol} ${styles.discovery}`}>
-            <h4>Included Innovation Labs</h4>
-            <ul><li>AI Innovation Lab</li><li>Physical AI Innovation Lab</li><li>Robotics Engineering Lab</li><li>Computer Vision Lab</li><li>Autonomous Systems Lab</li><li>Embedded Systems Lab</li><li>Innovation Studio</li><li>AI Research Center</li></ul>
+            <h4>Innovation Labs</h4>
+            <ul>
+              <li>AI Research Center</li>
+              <li>Autonomous Systems Lab</li>
+              <li>Computer Vision Lab</li>
+              <li>Advanced Robotics Lab</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.discovery}`}>
-            <h4>Technology Platforms</h4>
-            <ul><li>Advanced robotics platforms</li><li>Autonomous mobile robots</li><li>Robotic arms and manipulators</li><li>AI training servers and GPUs</li><li>Autonomous drone platforms</li><li>Simulation and digital twin environments</li></ul>
+            <h4>Core Topics</h4>
+            <ul>
+              <li>Advanced Deep Learning &amp; Research</li>
+              <li>Reinforcement Learning</li>
+              <li>Autonomous System Design</li>
+              <li>GPU Computing &amp; Cloud AI</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.discovery}`}>
-            <h4>Learning &amp; Research Programs</h4>
-            <ul><li>Advanced AI Development</li><li>Autonomous Systems Engineering</li><li>Robotics Perception and Planning</li><li>Reinforcement Learning</li><li>AI Product Development</li></ul>
+            <h4>Learning Format</h4>
+            <ul>
+              <li>Research-First Approach</li>
+              <li>Publication &amp; Patenting Support</li>
+              <li>Industry Collaboration</li>
+              <li>Advanced Seminars &amp; Workshops</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.discovery}`}>
-            <h4>Implementation Support</h4>
-            <ul><li>Research infrastructure setup</li><li>Advanced educator training</li><li>Industry collaboration programs</li><li>Student startup incubation initiatives</li></ul>
+            <h4>Support Provided</h4>
+            <ul>
+              <li>GPU Infrastructure Setup</li>
+              <li>Research Lab Design</li>
+              <li>Industry Partnership Facilitation</li>
+              <li>Grant Writing Support</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* NEXUS CAMPUS DETAIL */}
+      {/* PROGRAM DETAILS - Nexus */}
       <section className={styles.programDetail} id="nexus">
         <div className={styles.programDetailInner}>
           <div className={styles.programDetailLeft}>
             <div className={`${styles.programBadge} ${styles.nexus}`}>
-              <div className={`${styles.badgeDot} ${styles.nexus}`} />NEXUS CAMPUS
+              <div className={`${styles.badgeDot} ${styles.nexus}`} />
+              NEXUS CAMPUS
             </div>
-            <h2>For Institutional AI Ecosystem</h2>
+            <h2>Nexus Campus: Full-Scale Innovation Ecosystem</h2>
             <div className={styles.tagsRow}>
-              <span className={styles.tagPill}>End-to-End Innovation Campus</span>
-              <span className={styles.tagPill}>Industrial &amp; Physical AI Platforms</span>
-              <span className={styles.tagPill}>Smart Manufacturing Labs</span>
-              <span className={styles.tagPill}>Cloud + AI Compute Infrastructure</span>
+              <span className={styles.tagPill}>Enterprise-Scale</span>
+              <span className={styles.tagPill}>Global Institutions</span>
+              <span className={styles.tagPill}>All Levels</span>
             </div>
-            <p>The Nexus Campus is Brighture&apos;s most comprehensive offering — a full-scale institutional AI ecosystem that integrates every lab, every platform, and every program into one cohesive innovation campus. Designed for universities, enterprises, and governments seeking to become global centers for technology innovation, Nexus Campus transforms institutions into leaders in the AI-driven future.</p>
+            <p>Nexus Campus represents the pinnacle of AI and robotics innovation ecosystems. A complete, integrated campus combining Genesis, Acceleration, and Discovery programs with startup incubation, industry partnerships, and entrepreneurship pathways.</p>
+            <p>Designed for premier universities and global enterprises seeking to become leading innovation hubs for AI and robotics technology.</p>
             <div className={styles.metaTags}>
-              <span className={styles.metaTagIdeal}>✓ Ideal for Universities, Enterprises &amp; Government Entities</span>
-              <span className={styles.metaTagLab}>Lab Focus: Integrates multiple labs and innovation spaces to create a full technology ecosystem.</span>
+              <div className={styles.metaTagIdeal}>Ideal for Premier Institutions &amp; Global Enterprises</div>
+              <div className={styles.metaTagLab}>Complete Innovation Campus</div>
             </div>
           </div>
-          <div className={styles.programImageBox}>[Image Placeholder]</div>
+          <div className={`${styles.programImageBox} ${styles.nexus}`} />
         </div>
         <div className={styles.detailColumns}>
           <div className={`${styles.detailCol} ${styles.nexus}`}>
-            <h4>Included Innovation Labs</h4>
-            <ul><li>AI Innovation Lab</li><li>Robotics Engineering Lab</li><li>Autonomous Systems Lab</li><li>Computer Vision Lab</li><li>Embedded Systems Lab</li><li>Smart Manufacturing Lab</li><li>Innovation Studio</li><li>AI Research Center</li></ul>
-          </div>
-          <div className={`${styles.detailCol} ${styles.nexus}`}>
             <h4>Technology Platforms</h4>
-            <ul><li>Artificial Intelligence Platform</li><li>Robotics &amp; Autonomous Systems Platform</li><li>Physical AI Platform</li><li>Industrial AI Platform</li><li>Autonomous Mobility Platform</li><li>AI Compute &amp; Cloud Infrastructure</li></ul>
+            <ul>
+              <li>Artificial Intelligence Platform</li>
+              <li>Robotics &amp; Autonomous Systems Platform</li>
+              <li>Physical AI Platform</li>
+              <li>Industrial AI Platform</li>
+              <li>Autonomous Mobility Platform</li>
+              <li>AI Compute &amp; Cloud Infrastructure</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.nexus}`}>
             <h4>Learning &amp; Research Programs</h4>
-            <ul><li>Artificial Intelligence &amp; Machine Learning</li><li>Robotics &amp; Autonomous Systems</li><li>Physical AI &amp; Intelligent Machines</li><li>Industrial AI &amp; Smart Manufacturing</li><li>Autonomous Systems &amp; Mobility</li><li>Innovation &amp; AI Entrepreneurship</li><li>AI for Industry &amp; Enterprise Applications</li><li>Advanced Research &amp; Fellowship Programs</li></ul>
+            <ul>
+              <li>Artificial Intelligence &amp; Machine Learning</li>
+              <li>Robotics &amp; Autonomous Systems</li>
+              <li>Physical AI &amp; Intelligent Machines</li>
+              <li>Industrial AI &amp; Smart Manufacturing</li>
+              <li>Autonomous Systems &amp; Mobility</li>
+              <li>Innovation &amp; AI Entrepreneurship</li>
+              <li>AI for Industry &amp; Enterprise Applications</li>
+              <li>Advanced Research &amp; Fellowship Programs</li>
+            </ul>
           </div>
           <div className={`${styles.detailCol} ${styles.nexus}`}>
             <h4>Implementation Support</h4>
-            <ul><li>End-to-end innovation campus design</li><li>Research infrastructure setup</li><li>Advanced educator training</li><li>Industry collaboration programs</li><li>Student startup incubation initiatives</li></ul>
+            <ul>
+              <li>End-to-end innovation campus design</li>
+              <li>Research infrastructure setup</li>
+              <li>Advanced educator training</li>
+              <li>Industry collaboration programs</li>
+              <li>Student startup incubation initiatives</li>
+            </ul>
+          </div>
+          <div className={`${styles.detailCol} ${styles.nexus}`}>
+            <h4>Ecosystem Integration</h4>
+            <ul>
+              <li>Startup Incubation Programs</li>
+              <li>Industry Advisory Boards</li>
+              <li>Government &amp; Research Partnerships</li>
+              <li>Entrepreneurship Pathways</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -388,10 +580,10 @@ export default function AILabsPage() {
               <tr><td>Robotics Lab</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
               <tr><td>Embedded Systems Lab</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
               <tr><td>Innovation Studio</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Computer Vision Lab</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Autonomous Systems Lab</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>AI Research Center</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Smart Manufacturing Lab</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Computer Vision Lab</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Autonomous Systems Lab</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>AI Research Center</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Smart Manufacturing Lab</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -409,13 +601,13 @@ export default function AILabsPage() {
               </tr>
             </thead>
             <tbody>
-              <tr><td>Educational Robotics</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td></tr>
-              <tr><td>AI Workstations</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Edge AI Devices</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Digital Twin</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Autonomous Robots</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Drone Platforms</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>AI Cloud Infrastructure</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Educational Robotics</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td></tr>
+              <tr><td>AI Workstations</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Edge AI Devices</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Digital Twin</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Autonomous Robots</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Drone Platforms</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>AI Cloud Infrastructure</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -434,13 +626,13 @@ export default function AILabsPage() {
             </thead>
             <tbody>
               <tr><td>AI Fundamentals</td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Machine Learning</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Computer Vision</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Autonomous Systems</td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Reinforcement Learning</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Research &amp; Fellowships</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>Industrial AI</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td></tr>
-              <tr><td>AI Entrepreneurship</td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.na}>NA</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Machine Learning</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Computer Vision</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Autonomous Systems</td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Reinforcement Learning</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Research &amp; Fellowships</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>Industrial AI</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td></tr>
+              <tr><td>AI Entrepreneurship</td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.na}>--</span></td><td><span className={styles.check}>✓</span></td></tr>
             </tbody>
           </table>
         </div>
