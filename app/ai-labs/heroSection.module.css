@@ -255,17 +255,19 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
 /* CTA Group */
 .ctaGroup {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ✅ equal width buttons */
   gap: 16px;
-  align-items: center;
+
   margin-top: 28px;
+  max-width: 520px;
 }
 
 .btnPrimary {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
+  padding: 16px 28px;
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #fff;
   border: none;
@@ -295,7 +297,7 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
+  padding: 16px 28px;
   background: rgba(37, 99, 235, 0.08);
   color: #2563eb;
   border: 1.5px solid rgba(37, 99, 235, 0.35);
@@ -462,14 +464,21 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
     gap: 12px;
   }
 
-  .btnPrimary,
-  .btnSecondary {
-    width: 100%;
-    justify-content: center;
-  }
+.btnPrimary,
+.btnSecondary {
+  width: 220px;          /* ✅ same width */
+  height: 200px;          /* ✅ slightly taller than before */
+
+  display: inline-flex;
+  align-items: center;   /* ✅ perfect vertical centering */
+  justify-content: center; /* ✅ perfect horizontal centering */
+
+  gap: 10px;             /* spacing between text and arrow */
+  flex: 1
+}
 
   .visualContainer {
-    height: 300px;
+    height: 200px;
   }
 
   .shape1, .shape2, .shape3 {
@@ -491,21 +500,29 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
 /* HERO METRICS */
 .metrics {
-  display: flex;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-  margin-top: 32px;
+  gap: 16px;
 
+  margin-top: 32px;
+  max-width: 520px; /* keeps it aligned to description text */
 }
 
 .metric {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 6px;
+
+  padding: 14px 16px;
+
+  border: 1.5px solid rgba(37, 99, 235, 0.35);
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.06);
 }
 
 .metricValue {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   color: #2563eb;
   line-height: 1;
@@ -515,7 +532,7 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.8px;
-  color: #8a8fa6;
+  color: #1a1a2e; /* ✅ black / primary text color */
 }
 
 .active {
