@@ -13,7 +13,6 @@ export default function AILabsPage() {
 
   return (
     <div className={`${styles.page} ${heroStyles.lightTheme}`}>
-
       {/* MODERN HERO SECTION */}
       <motion.section
         className={heroStyles.heroSection}
@@ -126,82 +125,133 @@ export default function AILabsPage() {
           </div>
         </div>
       </motion.section>
+{/* INNOVATION PROGRAMS */}
+<section id="programs" className={styles.programs}>
+  {/* Dark rounded container ONLY for this section */}
+  <div className={styles.programsInner}>
+    <div className={styles.programsHeader}>
+      <div className={styles.sectionLabel}>INNOVATION PROGRAMS</div>
+      <h2>
+        Choose Your <br /> Innovation Path
+      </h2>
+      <p>
+        Four structured programs — from foundational AI exploration to full
+        institutional innovation campuses. Each designed to grow with your
+        institution&apos;s ambition.
+      </p>
+    </div>
 
-      {/* INNOVATION PROGRAMS */}
-      <section id="programs" className={styles.programs}>
-        <div className={styles.programsHeader}>
-          <div className={styles.sectionLabel}>INNOVATION PROGRAMS</div>
-          <h2>Choose Your<br />Innovation Path</h2>
-          <p>
-            Four structured programs — from foundational AI exploration to full
-            institutional innovation campuses. Each designed to grow with your
-            institution&apos;s ambition.
-          </p>
-        </div>
-
-        <div className={styles.programsGrid}>
-          {/* Genesis */}
-          <div className={`${styles.programCard} ${styles.genesis}`}>
-            <div className={`${styles.programIcon} ${styles.genesis}`} />
+    <div className={styles.programsGrid}>
+      {/* Genesis */}
+      <div className={`${styles.programCard} ${styles.genesis}`}>
+        <div className={styles.programHeader}>
+          <div className={`${styles.programIcon} ${styles.genesis}`} />
+          <div>
             <h3>Genesis</h3>
-            <div className={styles.sub}>For Early AI &amp; Robotics Learning</div>
-            <ul>
-              <li>Core Innovation Labs</li>
-              <li>Foundational AI &amp; Robotics</li>
-              <li>Hands-on Electronics &amp; IoT</li>
-              <li>Design Thinking Approach</li>
-            </ul>
-            <div className={`${styles.idealTag} ${styles.genesis}`}>✓ Ideal for Schools &amp; Early University</div>
-            <Link href="#genesis" className={styles.learnMore}>Learn More →</Link>
-          </div>
-
-          {/* Acceleration */}
-          <div className={`${styles.programCard} ${styles.accel}`}>
-            <div className={`${styles.programIcon} ${styles.accel}`} />
-            <h3>Acceleration</h3>
-            <div className={styles.sub}>For Applied Engineering &amp; Prototyping</div>
-            <ul>
-              <li>Multi-domain Innovation Labs</li>
-              <li>AI, CV &amp; Edge Computing</li>
-              <li>Real-world Product Development</li>
-              <li>Simulation-based Learning</li>
-            </ul>
-            <div className={`${styles.idealTag} ${styles.accel}`}>✓ Ideal for Schools, Universities &amp; Skill Programs</div>
-            <Link href="#acceleration" className={styles.learnMore}>Learn More →</Link>
-          </div>
-
-          {/* Discovery */}
-          <div className={`${styles.programCard} ${styles.discovery}`}>
-            <div className={`${styles.programIcon} ${styles.discovery}`} />
-            <h3>Discovery</h3>
-            <div className={styles.sub}>For Advanced Research &amp; Innovation</div>
-            <ul>
-              <li>Full-stack AI &amp; Robotics Labs</li>
-              <li>Autonomous Systems &amp; Drones</li>
-              <li>GPU-powered AI Infrastructure</li>
-              <li>Industry-aligned Research</li>
-            </ul>
-            <div className={`${styles.idealTag} ${styles.discovery}`}>✓ Ideal for Research Universities &amp; Enterprise R&amp;D</div>
-            <Link href="#discovery" className={styles.learnMore}>Learn More →</Link>
-          </div>
-
-          {/* Nexus Campus */}
-          <div className={`${styles.programCard} ${styles.nexus}`}>
-            <div className={`${styles.programIcon} ${styles.nexus}`} />
-            <h3>Nexus Campus</h3>
-            <div className={styles.sub}>Full-Scale Innovation Ecosystem</div>
-            <ul>
-              <li>Complete Innovation Campus</li>
-              <li>Integrated Research &amp; Industry Programs</li>
-              <li>Startup &amp; Entrepreneur Incubation</li>
-              <li>Enterprise Technology Partnerships</li>
-            </ul>
-            <div className={`${styles.idealTag} ${styles.nexus}`}>✓ Ideal for Premier Universities &amp; Global Enterprises</div>
-            <Link href="#nexus" className={styles.learnMore}>Learn More →</Link>
+            <div className={styles.sub}>
+              For Early AI &amp; Robotics Learning
+            </div>
           </div>
         </div>
-      </section>
 
+        <ul>
+          <li>Core Innovation Labs</li>
+          <li>Foundational AI &amp; Robotics</li>
+          <li>Hands-on Electronics &amp; IoT</li>
+          <li>Design Thinking Approach</li>
+        </ul>
+
+        <div className={`${styles.idealTag} ${styles.genesis}`}>
+          ✓ Ideal for Schools &amp; Early University
+        </div>
+        <Link href="#genesis" className={styles.learnMore}>
+          Learn More →
+        </Link>
+      </div>
+
+      {/* Acceleration */}
+      <div className={`${styles.programCard} ${styles.accel}`}>
+        <div className={styles.programHeader}>
+          <div className={`${styles.programIcon} ${styles.accel}`} />
+          <div>
+            <h3>Acceleration</h3>
+            <div className={styles.sub}>
+              For Applied Engineering &amp; Prototyping
+            </div>
+          </div>
+        </div>
+
+        <ul>
+          <li>Multi-domain Innovation Labs</li>
+          <li>AI, CV &amp; Edge Computing</li>
+          <li>Real-world Product Development</li>
+          <li>Simulation-based Learning</li>
+        </ul>
+
+        <div className={`${styles.idealTag} ${styles.accel}`}>
+          ✓ Ideal for Schools, Universities &amp; Skill Programs
+        </div>
+        <Link href="#acceleration" className={styles.learnMore}>
+          Learn More →
+        </Link>
+      </div>
+
+      {/* Discovery */}
+      <div className={`${styles.programCard} ${styles.discovery}`}>
+        <div className={styles.programHeader}>
+          <div className={`${styles.programIcon} ${styles.discovery}`} />
+          <div>
+            <h3>Discovery</h3>
+            <div className={styles.sub}>
+              For Advanced Research &amp; Innovation
+            </div>
+          </div>
+        </div>
+
+        <ul>
+          <li>Full-stack AI &amp; Robotics Labs</li>
+          <li>Autonomous Systems &amp; Drones</li>
+          <li>GPU-powered AI Infrastructure</li>
+          <li>Industry-aligned Research</li>
+        </ul>
+
+        <div className={`${styles.idealTag} ${styles.discovery}`}>
+          ✓ Ideal for Research Universities &amp; Enterprise R&amp;D
+        </div>
+        <Link href="#discovery" className={styles.learnMore}>
+          Learn More →
+        </Link>
+      </div>
+
+      {/* Nexus Campus */}
+      <div className={`${styles.programCard} ${styles.nexus}`}>
+        <div className={styles.programHeader}>
+          <div className={`${styles.programIcon} ${styles.nexus}`} />
+          <div>
+            <h3>Nexus Campus</h3>
+            <div className={styles.sub}>
+              Full-Scale Innovation Ecosystem
+            </div>
+          </div>
+        </div>
+
+        <ul>
+          <li>Complete Innovation Campus</li>
+          <li>Integrated Research &amp; Industry Programs</li>
+          <li>Startup &amp; Entrepreneur Incubation</li>
+          <li>Enterprise Technology Partnerships</li>
+        </ul>
+
+        <div className={`${styles.idealTag} ${styles.nexus}`}>
+          ✓ Ideal for Premier Universities &amp; Global Enterprises
+        </div>
+        <Link href="#nexus" className={styles.learnMore}>
+          Learn More →
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
       {/* TARGET AUDIENCE */}
       <section className={styles.audience} id="audience">
         <div className={styles.audienceHeader}>
@@ -636,7 +686,7 @@ export default function AILabsPage() {
             </tbody>
           </table>
         </div>
-      </section>
+      </section>/
 
       {/* FOOTER */}
       <footer className={styles.footer} id="contact">

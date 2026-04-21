@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const locations = [
-  { label: "BENGALURU, INDIA", image: "/images/global/bangalore.webp" },
+  { label: "BENGALURU, INDIA", image: "/images/global/bangalore.jpg" },
   { label: "DUBAI, UNITED ARAB EMIRATES", image: "/images/global/dubai.jpg" },
   { label: "LONDON, UNITED KINGDOM", image: "/images/global/london.jpg" },
   { label: "TEXAS, UNITED STATES OF AMERICA", image: "/images/global/texas.jpg" },

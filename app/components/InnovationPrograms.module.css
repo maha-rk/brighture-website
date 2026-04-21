@@ -1,0 +1,157 @@
+.section {
+  padding: 120px 60px;
+  background: #fffdeb;
+}
+
+.header {
+  max-width: 720px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #4f46e5;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  font-size: 40px;
+  margin: 16px 0;
+  color: #1a1a2e;
+}
+
+.header p {
+  max-width: 460px;
+  margin: 0 auto;
+  color: #555;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* Card base */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+  padding: 28px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Top */
+.top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+/* Text */
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* List */
+.list {
+  margin: 24px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.list li {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: currentColor;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.link {
+  font-size: 13px;
+  font-weight: 600;
+  color: currentColor;
+}
+
+/* Color themes */
+.blue { color: #4f46e5; }
+.blue .icon { background: #4f46e5; }
+.blue .badge { background: rgba(79,70,229,0.15); }
+
+.green { color: #16a34a; }
+.green .icon { background: #16a34a; }
+.green .badge { background: rgba(22,163,74,0.15); }
+
+.orange { color: #f59e0b; }
+.orange .icon { background: #f59e0b; }
+.orange .badge { background: rgba(245,158,11,0.16); }
+
+.purple { color: #8b5cf6; }
+.purple .icon { background: #8b5cf6; }
+.purple .badge { background: rgba(139,92,246,0.15); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
