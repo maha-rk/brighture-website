@@ -30,3 +30,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+html {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial,
+    system-ui, sans-serif;
+}

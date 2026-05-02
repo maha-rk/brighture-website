@@ -594,3 +594,83 @@ inset 0 1px 0 rgba(255, 255, 255, 0.04);
   box-shadow: 0 20px 40px rgba(139, 92, 246, 0.25);
 }
 
+/* HERO METRICS STRIP */
+
+.metricsSection {
+  background: #0f172a; /* same dark blue as hero bottom */
+  padding: 48px 0 72px;
+}
+
+.metricsBox {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  background: #fffef0; /* lighter yellow */
+  border-radius: 24px;
+  padding: 36px 40px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.metricItem {
+  text-align: center;
+}
+
+.metricValue {
+  display: block;
+  font-size: 42px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.metricLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.descriptionSecondary {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.futureWord {
+  color: #2563eb;
+  position: relative;
+}
+
+.futureWord::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  background-color: #2563eb;
+  border-radius: 2px;
+}
+
+/* System-consistent blue highlight for "future" */
+.futureHighlight {
+  color: #2563eb;
+  position: relative;
+}
+
+.futureHighlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  background-color: #2563eb;
+  border-radius: 2px;
+}

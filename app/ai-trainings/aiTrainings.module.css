@@ -2,57 +2,294 @@
 .page * { box-sizing: border-box; margin: 0; padding: 0; }
 .page { font-family: 'Inter', sans-serif; color: #111; background: #fff; }
 
-/* HERO */
+:root {
+  --ui-border: #d9e1f2;
+  --ui-divider: #e3e9f8;
+}
+
+/* =====================
+   HERO
+   ===================== */
 .hero {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 80px 80px; background: #f0f0fa; min-height: 520px; gap: 60px;
+  position: relative;
+  width: 100%;
+  height: 71vh;
+  min-height: 740px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  margin-bottom: 0;
 }
-.heroLeft { max-width: 520px; }
-.badge {
-  display: inline-block; border: 1px solid #bbb; border-radius: 999px;
-  padding: 6px 16px; font-size: 12px; font-weight: 600; color: #4f46e5; letter-spacing: 0.5px;
-  margin-bottom: 28px; background: #fff;
+
+.heroBgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
-.heroTitle { font-size: 64px; font-weight: 800; line-height: 1.05; margin-bottom: 24px; }
-.blue   { color: #4f46e5; }
-.purple { color: #a855f7; }
-.orange { color: #e06b2a; }
-.heroDesc { font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 36px; }
-.heroButtons { display: flex; gap: 16px; }
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.heroContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.heroTitle {
+  font-size: 70px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(255,255,255,0.85));
+  z-index: 3;
+  pointer-events: none;
+}
+
 .btnPrimary {
-  background: #4f46e5; color: #fff; border: none; border-radius: 10px;
-  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
-  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  background: #111;
+  color: #fff;
+  border: 2px solid #111;
+  border-radius: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  min-width: 180px;
 }
+.btnPrimary:hover { background: #333; border-color: #333; }
+
 .btnSecondary {
-  background: #fff; color: #111; border: 1.5px solid #ddd; border-radius: 10px;
-  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
+  background: #fff;
+  color: #111;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-width: 180px;
 }
-.heroImageBox {
-  width: 420px; min-width: 320px; height: 580px; background: #d0d0e8; border-radius: 20px;
-  display: flex; align-items: center; justify-content: center; color: #888; font-size: 14px; flex-shrink: 0;
+.btnSecondary:hover { background: rgba(255,255,255,0.85); }
+
+/* =====================
+   METRICS STRIP
+   ===================== */
+.metricsStrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 80px;
+  background: #ffffff;
+  border-top: 1px solid var(--ui-divider);
+  border-bottom: 1px solid #e3e8f3;
+  position: relative;
+  margin-top: -56px;
+  z-index: 4;
+  backdrop-filter: blur(6px);
 }
 
-/* LEVEL SECTION */
-.levelSection { padding: 80px 80px; border-bottom: 1px solid #eee; }
-.levelHeader { display: flex; align-items: flex-start; gap: 28px; margin-bottom: 48px; }
+.metricItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.metricItem:not(:first-child) { border-left: 1px solid #e3e8f3; }
+
+.metricValue {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+.metricLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* =====================
+   LEVEL SECTION BASE
+   ===================== */
+.levelSection {
+  padding: 36px 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Angled bottom divider for drama between sections */
+.levelSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.06), transparent);
+}
+
+/* Top accent bar — unique per level */
+.levelSection::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  opacity: 1;
+}
+
+/* =====================
+   LEVEL BACKGROUNDS — richer, more distinct
+   ===================== */
+.l1Section {
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(79, 70, 229, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
+    #fafafa;
+}
+.l1Section::before {
+  background: linear-gradient(90deg, #4f46e5, #818cf8, transparent);
+}
+
+.l2Section {
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(34, 197, 94, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(34, 197, 94, 0.05) 0%, transparent 40%),
+    #f7fdf9;
+}
+.l2Section::before {
+  background: linear-gradient(90deg, #22c55e, #86efac, transparent);
+}
+
+.l3Section {
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(245, 158, 11, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+    #fffdf7;
+}
+.l3Section::before {
+  background: linear-gradient(90deg, #f59e0b, #fcd34d, transparent);
+}
+
+.l4Section {
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(139, 92, 246, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+    #faf8ff;
+}
+.l4Section::before {
+  background: linear-gradient(90deg, #8b5cf6, #c4b5fd, transparent);
+}
+
+/* =====================
+   DECORATIVE LEVEL NUMBER (background watermark)
+   ===================== */
+.levelSection .levelDecoNumber {
+  position: absolute;
+  right: 72px;
+  bottom: 10px;
+  font-size: 130px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+  opacity: 0.05;
+  color: #000;
+  z-index: 0;
+}
+
+/* =====================
+   LEVEL BUBBLE — bigger, bolder badge
+   ===================== */
 .levelBubble {
-  width: 60px; height: 60px; border-radius: 50%;
+  width: 68px; height: 68px; border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 800; color: #fff; flex-shrink: 0;
+  font-size: 20px; font-weight: 900; color: #fff; flex-shrink: 0;
+  letter-spacing: -0.5px;
+  animation: float 6s ease-in-out infinite;
 }
-.l1 { background: #4f46e5; }
-.l2 { background: #22c55e; }
-.l3 { background: #f59e0b; }
-.l4 { background: #8b5cf6; }
+.l1.levelBubble {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35), 0 0 0 4px rgba(79, 70, 229, 0.10);
+}
+.l2.levelBubble {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35), 0 0 0 4px rgba(34, 197, 94, 0.10);
+}
+.l3.levelBubble {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35), 0 0 0 4px rgba(245, 158, 11, 0.10);
+}
+.l4.levelBubble {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35), 0 0 0 4px rgba(139, 92, 246, 0.10);
+}
 
-.levelMeta { flex: 1; }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* =====================
+   LEVEL BADGE
+   ===================== */
 .levelBadge {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  padding: 5px 12px; border-radius: 6px; margin-bottom: 12px; border: 1px solid #e5e5e5;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 6px; margin-bottom: 14px; border: 1px solid;
 }
-.levelBadge .dot { width: 10px; height: 10px; border-radius: 2px; }
+.levelBadge .dot { width: 8px; height: 8px; border-radius: 2px; }
+
 .levelBadge.l1 { color: #4f46e5; background: #eef2ff; border-color: #c7d2fe; }
 .levelBadge.l1 .dot { background: #4f46e5; }
 .levelBadge.l2 { color: #16a34a; background: #f0fdf4; border-color: #bbf7d0; }
@@ -62,40 +299,304 @@
 .levelBadge.l4 { color: #7c3aed; background: #f5f3ff; border-color: #ddd6fe; }
 .levelBadge.l4 .dot { background: #8b5cf6; }
 
-.levelTitle { font-size: 36px; font-weight: 800; color: #111; margin-bottom: 10px; }
-.levelDesc { font-size: 14px; color: #666; line-height: 1.7; font-style: italic; max-width: 560px; }
+/* =====================
+   LEVEL HEADER ROW
+   ===================== */
+.levelHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+.levelHeaderLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  flex: 1;
+}
+.levelMeta { flex: 1; }
 
-.levelRight { display: flex; flex-direction: column; align-items: flex-end; }
+.levelTitle {
+  font-size: 44px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.levelDesc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  font-style: italic;
+  max-width: 580px;
+}
+
+/* =====================
+   LEVEL IMAGE BOX — 3D POP
+   ===================== */
 .levelImageBox {
-  width: 200px; height: 160px; background: #d8d8e8; border-radius: 16px;
-  display: flex; align-items: center; justify-content: center; color: #888; font-size: 12px;
+  flex-shrink: 0;
+  position: relative;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  overflow: visible;
 }
 
-/* full header row with image */
-.levelHeaderRow { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; margin-bottom: 48px; }
-.levelHeaderLeft { display: flex; align-items: flex-start; gap: 28px; flex: 1; }
+.levelImageBox::before { display: none; }
 
-/* DOMAIN CARDS */
-.domainsGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 28px; }
+/* Shadow hidden by default */
+.levelImageBox::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  filter: blur(14px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  width: 0;
+  height: 16px;
+  bottom: 0;
+}
+
+/* L1 — shadow right under spider robot legs */
+.levelImageBoxL1::after {
+  opacity: 0.6;
+  width: 60%;
+  bottom: 40px;
+  background: rgba(79, 70, 229, 0.40);
+  filter: blur(12px);
+}
+
+/* L3 — shadow under drone base */
+.levelImageBoxL3::after {
+  opacity: 1;
+  width: 44%;
+  bottom: 14px;
+  background: rgba(245, 158, 11, 0.40);
+  filter: blur(12px);
+}
+
+/* L2 and L4 — no shadow */
+.levelImageBoxL2::after,
+.levelImageBoxL4::after { opacity: 0; width: 0; }
+
+.levelImageBoxCutout {
+  width: 400px;
+  height: 300px;
+}
+
+/* Base image — all levels */
+.levelImageCutout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  mix-blend-mode: multiply;
+  filter:
+    drop-shadow(0px 18px 14px rgba(0, 0, 0, 0.18))
+    drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.12));
+  transform: perspective(700px) rotateX(4deg) scale(1.22) translateY(-4px);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.levelImageBoxCutout:hover .levelImageCutout {
+  filter:
+    drop-shadow(0px 28px 22px rgba(0, 0, 0, 0.24))
+    drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.16));
+  transform: perspective(700px) rotateX(1deg) scale(1.26) translateY(-12px);
+}
+
+/* L2 — overhead flatlay needs big scale boost, nudged down */
+.levelImageBoxL2 .levelImageCutout {
+  transform: perspective(700px) rotateX(4deg) scale(1.75) translateY(6px);
+}
+.levelImageBoxL2:hover .levelImageCutout {
+  transform: perspective(700px) rotateX(1deg) scale(1.80) translateY(-2px);
+}
+
+/* L4 — shift woman left and reduce size so she aligns with box edge */
+.levelImageBoxL4 .levelImageCutout {
+  transform: perspective(700px) rotateX(4deg) scale(1.05) translateY(-4px) translateX(-24px);
+  object-position: 35% center;
+}
+.levelImageBoxL4:hover .levelImageCutout {
+  transform: perspective(700px) rotateX(1deg) scale(1.08) translateY(-12px) translateX(-24px);
+  object-position: 35% center;
+}
+
+/* =====================
+   DOMAIN CARDS — elevated with icon bar
+   ===================== */
+.domainsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
 .domainCard {
-  border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px 16px; background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 0 0 16px 0;
+  background: #ffffff;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  overflow: hidden;
 }
-.domainCard.highlighted { border-color: #111; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-.domainIcon { font-size: 28px; margin-bottom: 12px; }
-.domainCard h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
-.domainCard ul { list-style: none; }
-.domainCard ul li { font-size: 12px; color: #555; padding: 2px 0; display: flex; align-items: flex-start; gap: 6px; }
-.domainCard ul li::before { content: '·'; color: #999; }
+.domainCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
 
-/* LEARNING OUTCOMES */
-.outcomes { border: 1px solid #e5e5e5; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.outcomesLabel { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #888; margin-right: 8px; }
+/* Colored top bar per domain card */
+.domainCard::before {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 14px;
+}
+
+.domainCardL1::before { background: linear-gradient(90deg, #4f46e5, #818cf8); }
+.domainCardL2::before { background: linear-gradient(90deg, #22c55e, #86efac); }
+.domainCardL3::before { background: linear-gradient(90deg, #f59e0b, #fcd34d); }
+.domainCardL4::before { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+
+.domainCard h4 {
+  font-size: 13px; font-weight: 700; margin-bottom: 10px;
+  padding: 0 14px;
+}
+.domainCard ul { list-style: none; padding: 0 14px; }
+.domainCard ul li {
+  font-size: 12px; color: #555; padding: 2px 0;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.domainCard ul li::before { content: '·'; color: #bbb; }
+
+.domainCardL1 { border-color: #c7d2fe; }
+.domainCardL1:hover {
+  border-color: #a5b4fc;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.14);
+}
+.domainCardL1 h4 { color: #4f46e5; }
+
+.domainCardL2 { border-color: #bbf7d0; }
+.domainCardL2:hover {
+  border-color: #86efac;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.14);
+}
+.domainCardL2 h4 { color: #16a34a; }
+
+.domainCardL3 { border-color: #fde68a; }
+.domainCardL3:hover {
+  border-color: #fcd34d;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.14);
+}
+.domainCardL3 h4 { color: #d97706; }
+
+.domainCardL4 { border-color: #ddd6fe; }
+.domainCardL4:hover {
+  border-color: #c4b5fd;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.14);
+}
+.domainCardL4 h4 { color: #7c3aed; }
+
+/* =====================
+   LEARNING OUTCOMES — more prominent
+   ===================== */
+.outcomes {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.outcomesLabel {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
 .outcomeTag {
-  background: #f5f5f5; border: 1px solid #e5e5e5; border-radius: 6px;
-  padding: 6px 14px; font-size: 13px; color: #444; font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1.5px solid currentColor;
+  background: #fff;
+  color: inherit;
+  box-shadow: 0 0 10px -3px currentColor;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.outcomeTag:hover {
+  box-shadow: 0 0 18px -2px currentColor;
+  transform: translateY(-1px);
 }
 
-/* HOW WE TEACH */
+.outcomesL1 .outcomeTag, .outcomeTagL1 { color: #4f46e5; }
+.outcomesL2 .outcomeTag, .outcomeTagL2 { color: #16a34a; }
+.outcomesL3 .outcomeTag, .outcomeTagL3 { color: #d97706; }
+.outcomesL4 .outcomeTag, .outcomeTagL4 { color: #7c3aed; }
+
+/* =====================
+   LEVEL CONNECTOR — between sections
+   ===================== */
+.levelConnector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+.levelConnectorLine {
+  height: 1px;
+  width: 60px;
+  background: #e5e7eb;
+}
+.levelConnectorDot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #fff;
+  border: 2px solid #d1d5db;
+  margin: 0 10px;
+}
+.levelConnectorArrow {
+  font-size: 13px;
+  color: #ccc;
+  margin: 0 6px;
+  user-select: none;
+}
+
+/* =====================
+   HOW WE TEACH
+   ===================== */
 .methodology { background: #0f1424; padding: 80px; }
 .sectionLabel {
   display: flex; align-items: center; gap: 10px;
@@ -105,33 +606,38 @@
 .sectionLabel::before { content: '—'; }
 .methodologyHeader { text-align: center; margin-bottom: 48px; }
 .methodologyHeader h2 { font-size: 38px; font-weight: 800; color: #fff; margin-bottom: 14px; }
-.methodologyHeader p { font-size: 15px; color: #aaa; max-width: 600px; margin: 0 auto; line-height: 1.7; }
-
-.methodCards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 28px; }
-.methodCard {
-  background: #1a1f2e; border-radius: 12px; padding: 24px 16px; text-align: center;
-  color: #ccc; font-size: 13px; font-weight: 600; line-height: 1.4;
+.methodologyHeader p {
+  font-size: 15px; color: #aaa; max-width: 600px; margin: 0 auto; line-height: 1.7;
+  white-space: pre-line;
 }
-.methodIcon { font-size: 26px; margin-bottom: 14px; }
 
 .benefitsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 36px; }
 .benefitCard {
-  background: #1a1f2e; border-radius: 12px; padding: 20px 20px; display: flex; align-items: flex-start; gap: 12px;
+  background: #1a1f2e; border-radius: 12px; padding: 20px 20px;
+  display: flex; align-items: flex-start; gap: 12px;
 }
 .benefitCheck {
   width: 24px; height: 24px; border-radius: 50%; background: #4f46e5;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 12px; color: #fff;
 }
 .benefitCard p { font-size: 13px; color: #ccc; line-height: 1.6; }
 
 .methodImages { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .methodImageBox {
-  height: 200px; background: #2a2f3e; border-radius: 16px;
-  display: flex; align-items: center; justify-content: center; color: #666; font-size: 13px;
+  height: 280px; background: #2a2f3e; border-radius: 16px; overflow: hidden;
+}
+.methodImageActual {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
 }
 
-/* ACCREDITATION */
-.accreditation { padding: 80px; background: #fff; }
+/* =====================
+   ACCREDITATION
+   ===================== */
+.accreditation { padding-top: 56px; padding: 48px 80px; background: #fff; }
 .accreditationHeader { text-align: center; margin-bottom: 48px; }
 .sectionLabelDark {
   display: flex; align-items: center; gap: 10px;
@@ -140,16 +646,81 @@
 }
 .sectionLabelDark::before { content: '—'; }
 .accreditationHeader h2 { font-size: 38px; font-weight: 800; color: #111; margin-bottom: 14px; line-height: 1.2; }
-.accreditationHeader p { font-size: 15px; color: #666; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+.accreditationHeader p { font-size: 15px; color: #666; max-width: 540px; margin-bottom: 16px; margin: 0 auto; line-height: 1.7; }
 
 .stemBadge {
-  width: 160px; height: 120px; border: 1px solid #ddd; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 40px; background: #fff;
-  color: #888; font-size: 13px;
+  width: 250px; height: 250px;
+  display: flex; align-items: center; justify-content: center;
+  margin: -40px auto 12px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.stemBadgeImg {
+  width: 100%; height: 100%; object-fit: contain;
+}
+
+/* =====================
+   METHOD CARDS — 3 top + 2 bottom, video background
+   ===================== */
+.methodCardsTop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.methodCardsBottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.methodCard {
+  position: relative;
+  border-radius: 14px;
+  padding: 48px 24px;
+  text-align: center;
+  overflow: hidden;
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.methodCardVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.30;
+  z-index: 0;
+}
+.methodCardLabel {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+/* Partner logos */
+.partnerLogoBox {
+  width: 260px; height: 130px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.partnerLogoImg {
+  width: 100%; height: 100%; object-fit: contain;
 }
 
 .globalBox {
-  background: #f0f0fa; border-radius: 16px; padding: 36px 40px; text-align: center; margin-bottom: 48px;
+  background: #f0f0fa; border-radius: 16px; padding: 36px 40px;
+  text-align: center; margin-bottom: 48px;
 }
 .globalBox h3 { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 10px; }
 .globalBox p { font-size: 14px; color: #666; max-width: 480px; margin: 0 auto 20px; line-height: 1.6; }
@@ -158,14 +729,164 @@
 .globalCheck::before { content: '✓ '; }
 
 .partnersGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.partnerCard { border: 1px solid #e5e5e5; border-radius: 16px; padding: 32px; }
-.partnerLogoBox {
-  width: 120px; height: 60px; border: 1px solid #e5e5e5; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 18px; font-weight: 800;
-}
+.partnerCard { border: 1px solid #e3e8f3; border-radius: 16px; padding: 32px; text-align: center; }
 .partnerCard h4 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
 .partnerCard .partnerSub { font-size: 12px; color: #4f46e5; font-style: italic; margin-bottom: 12px; }
 .partnerCard p { font-size: 13px; color: #666; line-height: 1.6; }
 
-/* FOOTER */
+/* =====================
+   FOOTER
+   ===================== */
 .footer { background: #0f1117; color: #888; text-align: center; padding: 32px; font-size: 13px; }
+
+/* =====================
+   LAYOUT CONTAINER
+   ===================== */
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* =====================
+   SCROLL REVEAL
+   ===================== */
+:global(.reveal) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+:global(.reveal.visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   FLOATING LEVEL PROGRESS INDICATOR
+   ===================== */
+.levelIndicator {
+  position: fixed;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.levelIndicatorVisible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.levelIndicatorTrack {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(180, 180, 200, 0.25);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.levelIndicatorItem {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.levelIndicatorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(180, 180, 200, 0.35);
+  border: 2px solid rgba(180, 180, 200, 0.5);
+  transition: all 0.35s ease;
+  flex-shrink: 0;
+}
+
+.levelIndicatorPast .levelIndicatorDot {
+  background: var(--level-color);
+  border-color: var(--level-color);
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.levelIndicatorActive .levelIndicatorDot {
+  background: var(--level-color);
+  border-color: var(--level-color);
+  transform: scale(1.5);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--level-color) 20%, transparent),
+    0 0 12px color-mix(in srgb, var(--level-color) 40%, transparent);
+}
+
+.levelIndicatorTooltip {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #111;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.levelIndicatorItem:hover .levelIndicatorTooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.levelIndicatorTooltip strong {
+  color: var(--level-color);
+  margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+  .levelIndicator { display: none; }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 1024px) {
+  .domainsGrid { grid-template-columns: repeat(3, 1fr); }
+  .levelSection { padding: 28px 40px 32px; }
+  .levelImageBox,
+  .levelImageBoxCutout { width: 340px; height: 270px; }
+}
+
+@media (max-width: 768px) {
+  .heroTitle { font-size: 48px; }
+  .metricsStrip { grid-template-columns: repeat(2, 1fr); padding: 36px 24px; gap: 24px; }
+  .metricItem + .metricItem { border-left: none; }
+  .levelTitle { font-size: 32px; }
+}
+
+@media (max-width: 640px) {
+  .domainsGrid { grid-template-columns: repeat(2, 1fr); }
+  .levelSection { padding: 24px 20px 28px; }
+  .levelHeaderRow { flex-direction: column; align-items: flex-start; }
+  .levelImageBox,
+  .levelImageBoxCutout { width: 100%; height: 220px; }
+  .levelImageCutout { transform: none; }
+  .levelDecoNumber { display: none; }
+}
