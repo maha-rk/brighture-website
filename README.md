@@ -1,6 +1,6 @@
-# Brighture Website
+## Brighture Website
 
-## Getting Started
+### Getting Started
 
 ### Prerequisites
 - Node.js 18+
